@@ -1,11 +1,7 @@
 ---
 layout: page
 title : Archive
-header : Post Archive
-group: navigation
 comments: none
 ---
-{% include JB/setup %}
 
-{% assign posts_collate = site.posts %}
-{% include JB/posts_collate %}
+{% include jaytch/util-collate-posts.liquid data=site.posts %}
