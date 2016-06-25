@@ -66,15 +66,24 @@ function TypeaheadHandler(inputId, data) {
 var typeaheadHandler = typeaheadHandler || new TypeaheadHandler();
 
 $(document).ready(function() {
+    var initData = function(data) {
+        typeaheadHandler = new TypeaheadHandler("txtSearch", data);
+        if(typeof whenSearchTermsReady !== 'undefined') {
+            whenSearchTermsReady();
+        }
+    };
+
 	$.ajax({
 	  dataType: "json",
 	  url: BASE_URL + "/search.json",
 	  data: null,
 	  success: function (data) {
-        typeaheadHandler = new TypeaheadHandler("txtSearch", data);
-          if(typeof whenSearchTermsReady !== 'undefined') {
-                  whenSearchTermsReady();
+          initData(data);
+	  },
+      error: function(err) {
+          if(err.status === 200) {
+              initData(JSON.parse(err.responseText));
           }
-	  }
+      }
 	});
 });

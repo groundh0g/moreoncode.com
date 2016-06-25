@@ -26,6 +26,7 @@
                         {% for item in pg %}
                             {% assign pglnk = item | split: "|" %}
                             {% assign chkActive = page.url | replace: ".html", "" %}
+                <!-- {{ chkActive }} -->
                             {% if pglnk[1] == chkActive %}{% assign ACTIVE = "active" %}{% break %}{% endif %}
                         {% endfor %}
 

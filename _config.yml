@@ -48,6 +48,11 @@ jaytch:
   tweetHash:     "moreoncode" # don't hash first tag
   tweetShoutOut: "groundh0g"
 
+  footer:
+    col1: "Being Social | I don't get out much. But I'm online as | <a target='_blank' href='https://twitter.com/groundh0g' title='Twitter'>groundh0g</a>, <a target='_blank' href='https://www.facebook.com/groundh0g' title='Facebook'>groundh0g</a>, <a target='_blank' href='https://www.youtube.com/user/groundh0g' title='YouTube'>groundh0g</a>, | <a target='_blank' href='https://www.linkedin.com/in/groundh0g' title='LinkedIn'>groundh0g</a>, <a target='_blank' href='https://github.com/groundh0g' title='GitHub'>groundh0g</a>, &amp; <a target='_blank' href='https://plus.google.com/+JosephHall_groundh0g/posts' title='Google+'>groundh0g</a>."
+    col2: "&copy; Copyright | Content is copyright &copy; %year% Joseph B. Hall. | You may use the content from this site for | personal or commercial use. Links appreciated."
+    col3: "Share This | I'm in constant need of validation. | You can easily boost my self esteem. | Just <a target='_blank' href='http://www.fb.com/MoreOnCode' target='_blank'>Like</a>, <a target='_blank' href='https://plus.google.com/u/0/b/103732215392457387894/103732215392457387894/posts/p/pub' target='_blank'>+1</a>, <a target='_blank' href='https://twitter.com/MoreOnCode' target='_blank'>Follow</a>, or <a target='_blank' href='http://www.moreoncode.com/' target='_blank'>share a link</a>."
+
   search: # valid values are: true | false | {number}
     title:     true # always search
     tags:      true # always search
@@ -56,6 +61,7 @@ jaytch:
     inclPages: true # valid values are: true | false
 
   layout:
+    homepage: homepage.md
     minified: true          # Use *.min.css and *.min.js, when available.
     usecdn: false           # Use CDN (content delivery network), when supported.
     customcss: custom.css   # loaded after theme css files
@@ -67,10 +73,12 @@ jaytch:
                    #    readable | sandstone | simplex | slate |
                    #    spacelab | superhero | united | yeti
     nav_links: [ # the main menu links at the top of every page
-      "Archive|/archive",
-      "Categories|/categories",
-      "Tags|/tags",
-      "Contributors|/contributors",
+      # "Archive|/archive",
+      # "Categories|/categories",
+      # "Tags|/tags",
+      # "Contributors|/contributors",
+      "Blog|/blog",
+      "Camps|/camps/",
       "About|/about"
     ]
     sidebar_left:
@@ -78,7 +86,7 @@ jaytch:
     sidebar_right:
       sidebars: ["tagcloud", "posts", "calendar", "countdown", "quote", "quote2", "quote3", "quote4", "twitter"] # false | ["facebook", "twitter", ...]
       columns:  3
-      hideForHome: false
+      hideForHome: true
       hideForPage: false
       hideForPost: false
 

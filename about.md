@@ -3,41 +3,24 @@ layout: page
 title: About
 ---
 
-The work you see before you was predicted by the ancient texts.
+# Who is Joe Hall?
 
-    Gen  1:1  In the beginning, @AlGoreRythm created the 'net and the web. 2 Now the web was formless 
-              and filled with dancing hamsters, videos of cats, and images of scantily-clad women.
-    Gen  1:6  And @torvalds said, "Let there be a vault between the code to separate commit from commit."
-              7 And it was so. 8 @torvalds called the vault “git.” And there was evening, and there was 
-              morning—the 0x02nd day.
-    Gen  2:18 Then @mojombo said, "It is not good that programmer code alone. I will make a git 'hub'
-              where developers may collaborate!", and there was a repository. 19 @mojombo saw that the
-              repo was good.
-    Gen  2:25 The developers were naked, and they had no shame.
-    Gen 11:8  There were a multitude of content management systems. Each driven by data. 9 Within these words 
-              pressed, only confusion stood. That is why it was called babel.
-    Exo 34:27 Then @mojombo said to Ruby, "Write down these words."
-    Act  2:4  All of them were filled with the markdown and began to write in other tongues, as the keyboard
-              enabled them.
-    Act  2:13 Some, however, made fun of them and said, "They have had too much wine."
-    Rev 17:4  @mdo and @fat dressed the text in purple and scarlet, and was glittering with gold, precious
-              stones, and pearls.
-    Neh 12:28 The templates and static text also were brought together from the region around getbootstrap 
-              and jekyllrb by @plusjade.
-    Isa 25:12 It was prophesied that those high fortified walls would be brought down to be laid low; 
-              he will bring them down to the @groundh0g, to the very dust.
+<div style="float:left; margin-bottom:15px;"><img alt="" src="{{ site.baseurl }}/images/super-joe.png"></div>
 
-It is here that our new chapter begins! Now, the power of Jekyll, Bootstrap, and Github Pages has been handed to mere mortals.
+Joseph Hall has been a professional software developer for more than 25 years. He worked as a programmer for Microsoft and IBM, he was the software architect for a Fortune 500 bank, he was the CTO of an online ticket sales and servicing company, and he started his own consulting company (Codetopia, LLC) in 2006.
 
-This is the '{{ site.jaytch.layout.framework }}' framework, using the '{{ site.jaytch.layout.theme }}' theme. You can find out more info about how Jaytch handles themes and such in [the documentation]({{ site.baseurl }}/docs/layouts-frameworks-themes-and-templates).
+Joe makes his living writing desktop, web, and mobile device applications for businesses and governmental agencies, but game programming is his passion, and it was gaming that got him into programming in the first place. He was a member of the original Xbox team and he joined the Visual Studio .NET team just after the Xbox was released in 2001.
 
+He is the author of *[XNA Game Studio Express: Developing Games for Windows and the Xbox 360](http://amzn.to/1JuxvD8)*, which was published in 2007, and *Fauxcabulary: Fake Definitions, Real Funny*, which was self-published in 2015 (for [eBook](https://leanpub.com/fauxcabulary) and [print](http://www.lulu.com/shop/joseph-hall/fauxcabulary/paperback/product-22179468.html)). He has several new books in the pipeline including a multi-volume series on MonoGame development using Xamarin Studio and a techno-thriller trilogy set in the not-so-distant future.
 
-{% comment %}
-You can find the source code for the Jekyll new theme at 
-{% include jaytch/layout-file.liquid file="icon-github.html" username="jglovier" %} /
-[jekyll-new](https://github.com/jglovier/jekyll-new).
+Joe lives with his wife and three daughters in Newnan, Georgia. Every summer, Joe teaches high school students how to write games during an intense weeklong course in North Carolina for [Landry Academy](http://landryacademy.com/families1/camps/). In his free time, Joe dabbles in sketching, cartooning, and creating 3D models. When you see [his artistic creations](http://groundh0g.deviantart.com/), you’ll understand why he makes his living as a programmer.
 
-You can find the source code for Jekyll at 
-{% include jaytch/layout-file.liquid file="icon-github.html" username="jekyll" %} /
-[jekyll](https://github.com/jekyll/jekyll).
-{% endcomment %}
+# What is MoreOnCode.com?
+
+I have a lot of varied hobbies ... a lot of them. It’s hard to tie such a motley collection together, so I picked a tongue-in-cheek name for a website and posted a bunch of links to my other sites.
+
+The truth is that it’s hard to keep everything in isolation, so I’ll likely wind up blogging more here than at the sources. Not my brightest idea, but convenient.
+
+In early 2015, I started a new adventure – working as a software developer for ThoughtWorks, Inc, in Atlanta, GA. In my new role, I’m immersed in agile, extreme programming, and test-driven development methodologies. This old dog is learning new tricks!
+
+In all likelihood, I’ll blog about those experiences here as well.

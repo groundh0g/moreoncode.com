@@ -2,6 +2,10 @@
 layout: home
 title: The Landing Page
 showTitle: false
+sidebar_left: 
+  hideForHome: true
+sidebar_right:
+  hideForHome: true
 ---
 
 {% comment %}
@@ -17,7 +21,11 @@ showTitle: false
     content within "./templates/blog.md".
 {% endcomment %}
 
-{% assign layout_category = site.layouts_dir | split: '/' | last %}
-{% include_relative templates/{{ layout_category }}.md %}
+{% if site.jaytch.layout.homepage %}
+    {% include_relative {{ site.jaytch.layout.homepage }} %}
+{% else %}
+    {% assign layout_category = site.layouts_dir | split: '/' | last %}
+    {% include_relative templates/{{ layout_category }}.md %}
+{% endif %}
 
 &nbsp;
