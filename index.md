@@ -1,11 +1,6 @@
 ---
 layout: home
-title: The Landing Page
 showTitle: false
-sidebar_left: 
-  hideForHome: true
-sidebar_right:
-  hideForHome: true
 ---
 
 {% comment %}
