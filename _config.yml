@@ -78,15 +78,17 @@ jaytch:
       # "Tags|/tags",
       # "Contributors|/contributors",
       "Blog|/blog",
+      "Books|/books/",
       "Camps|/camps/",
       "About|/about"
     ]
     sidebar_left:
       sidebars: false # false | ["facebook", "twitter", ...]
     sidebar_right:
-      sidebars: ["tagcloud", "posts", "calendar", "countdown", "quote", "quote2", "quote3", "quote4", "twitter"] # false | ["facebook", "twitter", ...]
+      sidebars: ["calendar", "posts", "tagcloud", "twitter"]
       columns:  3
       hideForHome: true
+      hideForBook: true
       hideForPage: false
       hideForPost: false
 
@@ -99,7 +101,7 @@ jaytch:
       page:  Codetopia
     twitter:    # https://twitter.com/settings/widgets/new
       name:     GetJaytch
-      widgetId: 709112005668503552
+      widgetId: 316238224135684096
     googleplus: # https://www.kycosoftware.com/code/googleplus-feed-widget-2
       profileId: 113415901204258128457 # +JosephHall_groundh0g
     tagcloud:
@@ -130,7 +132,7 @@ jaytch:
       type: quote
       quote: # use the page's quote
     calendar:
-      title: History ...
+      title: Latest Posts
       date:  # date of most recent post
       width: 100%
     countdown:

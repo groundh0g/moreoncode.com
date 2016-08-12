@@ -14,7 +14,7 @@
   {% endfor %}
   {% for tag in site.tags limit: maxTags %}
     <span class="tag-cloud-{{ tag | last | size | times: 10 | divided_by: maxSize }}">
-      <a href="{{ site.baseurl }}tags#{{ tag | first | slugify }}-ref">{{ tag | first }}</a>
+      <a href="{{ site.baseurl }}/tags#{{ tag | first | slugify }}-ref">{{ tag | first }}</a>
     </span>
   {% endfor %}
   </p>

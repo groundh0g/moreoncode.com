@@ -10,7 +10,7 @@
   {% assign floatStyle = "float:" | append: include.float | append: ";" %}
 {% endif %}
 
-{% assign lastPost = site.posts | last %}
+{% assign lastPost = site.posts | sort: "date" | last %}
 {% assign aDateInMonth = include.date | default: lastPost.date | default: site.time | date: "%Y-%m-%d" %}
 
 {% assign monthNumber = aDateInMonth | date: "%m" | plus: 0 %}
