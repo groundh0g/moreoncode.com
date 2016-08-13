@@ -8,7 +8,8 @@ status: stub
 
 ## Overview
 
-![The 2015 Campers](images/camp2015students.jpg)
+![The 2015 Campers](images/camp2015students.jpg)<br/>
+_**The 2015 Campers**_
 
 Landry Academy's Computer Camp 2015 had 15 students. Most had never touched a compiler before this class.
 
@@ -22,7 +23,8 @@ We actually finished the game by Thursday (the night before the demo) and had ti
 
 The end result was a game that could easily be published to one of the many app stores. I'm proud of the work that the students did. Their creativity and willingness to follow through on the implementation made this one of the most enjoyable weeks of camp for me.
 
-![The 2015 Camp's Game](images/camp2015game.png)
+![The 2015 Camp's Game](images/camp2015game.png)<br/>
+_**The 2015 Camp's Game**_
 
 The 2015 Camp game can be downloaded from the following URL:    
 
@@ -31,6 +33,38 @@ The 2015 Camp game can be downloaded from the following URL:
 ## Our Game
 
 Blah. Blah. Blah. Blah. Blah.
+
+## The Design
+
+As with any project, we need to do a little planning before we start filling our disk with ones and zeros. Luckily, the mechanics of the endless runner genre are very well established.
+
+### Controls
+
+The controls are simple. We'll support touchscreens, controllers, and keyboards. Let's start with the touchscreen.
+
+* **Running:** Don't worry about running, the hero handles that automatically -- by running as fast as they can, increasing their velocity until they reach their top speed.
+* **Jumping:** Tap to jump. A quick tap for a short jump, a long press for the highest jump the hero can manage, or anything in between.
+* **Sliding:** Swipe down to slide under an obstacle.
+
+As for the devices with a gamepad, we can map jumping to one button (along with the short and long press behaviours) and sliding to another button. And since it won't hurt anything to give the player options, we can also map jump to thumbstick and DPad up, and slide to thumbstick and DPad down. In fact, via our keyboard-to-gamepad mapping, the player can use the up and down keyboard keys similarly.
+
+### Obstacles
+
+...
+
+### Scoring
+
+...
+
+### Eye Candy
+
+...
+
+## The Code
+
+Let's get started!
+
+...
 
 ## Summary
 

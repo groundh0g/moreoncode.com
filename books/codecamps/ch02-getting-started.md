@@ -2,7 +2,7 @@
 layout: book 
 title: "Chapter 2"
 tagline: "Getting Started"
-lastReviewedOn: "2016-08-09 00:00:00 -0500"
+lastReviewedOn: "2016-08-13 00:00:00 -0500"
 status: placeholder
 ---
 
@@ -69,7 +69,9 @@ After detailing the installation process for the tools, I'll describe the proces
 
 {pagebreak}
 
-## Installing the Tools: Mac OS X
+## MonoGame for Mac OS X
+
+### Install the Tools
 
 If you do any OS X or iOS development, you'll need to install XCode - the primary development environment for those platforms. As I mentioned earlier, XCode won't install unless your computer is running the latest version of OS X. So, your first step may be to upgrade your OS. Luckily, it appears that Apple has decided to release their new OS upgrades for free.
 
@@ -87,7 +89,7 @@ Once the downloads have completed, you'll want to install the MDK first, and the
 
 When those steps are complete, you should have a fully functioning development environment. Both Xcode and MonoDevelop (Xamarin Studio) should appear in both the OS X Launchpad and in the Applications folder.
 
-## Verify the Installation: Mac OS X
+### Verify the Installation
 
 Go ahead and launch Xamarin Studio. Unless you change the default behavior in the settings, every time Xamarin Studio runs, it will check for updates. Chances are pretty good that there will be an update available the first time you open the application. So, give it a few minutes before you move on.
 
@@ -95,67 +97,103 @@ We begin by creating a new MonoMac project. Create a new solution by selecting *
 
 Click the Play icon at the top, left of the IDE or select *Run / Start Debugging* from the menu. You'll be rewarded with an empty gray window. Congratulations. You've just written your first MonoMac application.
 
-![The Mac OS X Development Tools.](images/chapter02-01_MacOSX_InstallingAndVerifying.png)
-
 {pagebreak}
 
-## Installing the Tools: Windows
+## MonoGame for Windows
+
+### Install the Tools
 
 Blah. Blah. Blah.
 
-## Verify the Installation: Windows
-
-Blah. Blah. Blah.
-
-{pagebreak}
-
-## Installing the Tools: Linux
-
-Blah. Blah. Blah.
-
-## Verify the Installation: Linux
+### Verify the Installation
 
 Blah. Blah. Blah.
 
 {pagebreak}
 
-## Installing the Tools: Ouya
+## MonoGame for Linux
 
-Blah. Blah. Blah.
+Another platform. Another suite of development tools. We need to visit the MonoGame website to download the installer for Linux. I suggest that you follow the instructions listed there, it's more likely to be current. If you'd rather have the step-by-step, though, read on.
 
-## Verify the Installation: Ouya
+> I'm using Ubuntu 16.04 as I write this text. It looks like OpenSUSE makes things easier with (multiple) one-click installs, but I haven't tested anything other than Ubuntu.
 
-Blah. Blah. Blah.
+### Install the Tools
 
-{pagebreak}
+Run the following commands within a terminal window to install Mono (the .NET runtime for non-Microsoft platforms). There are some extras that these commands install that you may or may not need, but it's better to grab them all now so that you don't waste time troubleshooting issues down the road.
 
-## Installing the Tools: PS Vita
+```
+sudo apt-key adv \
+   --keyserver hkp://keyserver.ubuntu.com:80 \
+   --recv-keys 3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF
 
-Blah. Blah. Blah.
+echo "deb http://download.mono-project.com/repo/debian wheezy main" | \
+   sudo tee /etc/apt/sources.list.d/mono-xamarin.list
 
-## Verify the Installation: PS Vita
+sudo apt-get update
 
-Blah. Blah. Blah.
+sudo apt-get install \
+   mono-devel \
+   mono-complete \
+   referenceassemblies-pcl \
+   ca-certificates-mono \
+   mono-xsp4
+```
 
-{pagebreak}
+Next, we need to install the IDE &mdash; MonoDevelop. Again, I've opted to include more than you'll need. And, again, it's so that you don't have to bang your head against the keyboard later.
 
-## Installing the Tools: iOS
+```
+sudo apt-get install \
+   monodevelop \
+   monodevelop-nunit \
+   monodevelop-versioncontrol \
+   monodevelop-database
+```
 
-Blah. Blah. Blah.
+OK. We're almost there. We have the .NET runtime and the IDE, but we still need the tools to build games. It's time to install MonoGame. Before we actually install MonoGame, though, there are a few prerequisites. Use the following commands to get the dependencies installed.
 
-## Verify the Installation: iOS
+You will be prompted to accept the EULA for the TTF fonts. Use the tab and enter keys to navigate the prompts.
 
-Blah. Blah. Blah.
+```
+sudo apt-get install \
+   libopenal-dev \
+   gtk-sharp3 \
+   referenceassemblies-pcl \
+   ttf-mscorefonts-installer
+```
 
-{pagebreak}
+The last step in this somewhat convoluted process is to install MonoGame, itself. For that, we'll need to hit the web to download a script that will take care of the remaining bits for us.
 
-## Installing the Tools: Android
+Head over to the `http://monogame.net/` website, then click on the **Downloads** link at the top of the page. At the time of this writing, the latest version is **MonoGame 3.5**. Clicking that link provides more links. Click the **MonoGame 3.5 for Linux** link to download the `monogame-sdk.run` script.
 
-Blah. Blah. Blah.
+Assuming defaults, your file should be in the `~/Downloads` directory. Go back to the terminal window, `cd` into that folder, and issue the following commands.
 
-## Verify the Installation: Android
+```
+sudo chmod +x ./monogame-sdk.run
+sudo ./monogame-sdk.run
+```
 
-Blah. Blah. Blah.
+You will be prompted to confirm that the dependencies have been installed. They have. We did that in the previous steps. So answer "Y" when promted.
+
+You will be prompted to install the monodevelop addin. Again, answer "Y" when prompted.
+
+> If you're lucky, you won't see any errors during this process. I'm not so lucky. There were a dozen or so "ERROR" messages, each fussing about ASP.NET. That's not important to us for writing games, but you may want to do a little googling if you're planning to use MonoDevelop for more than just game programming.
+
+Fingers crossed. We may actually be done. It's now time to verify that things are working as expected.
+
+### Verify the Installation
+
+Using the search button on the Ubuntu taskbar, find "MonoDevelop". If you don't want to search for the application every time, drag the icon over to the taskbar so it's more readily available. When you're done with the light housekeeping, click the icon to launch the IDE.
+
+Click **File &raquo; New &raquo; Solution...** in the menu. Select "App" from the "MonoGame" project types, and then click **Next**. I named my project and solution "HelloCornflowerBlue", and I created a "Projects" folder to keep my games organized.
+
+Check the two boxes for version control (use git, create a ".gitignore" file), and then click **Create**.
+
+![Creating our first solution](images/figure02-linux-new-solution.png)<br/>
+_**Creating our first solution**_
+
+The IDE will churn a bit as it creates the project. When the dust settles down, click the play button at the top of the interface. If everything is working, you should see a window with a bright blue background.
+
+Congratulations. You've created your first game on Linux.
 
 {pagebreak}
 

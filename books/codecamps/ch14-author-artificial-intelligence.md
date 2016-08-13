@@ -32,7 +32,7 @@ Players take turns placing pieces on the board in an attempt to capture their op
 
 ![Our game concept. It's the CPU's turn. Valid moves are highlighted.](images/figure-whiteboard-board-game-ai.png)
 
-## The Architecture
+## The Design
 
 The basic design for this game is fairly simple. The game grid starts out empty and is gradually filled, one piece at a time. As pieces are added to the grid, we need to make sure that the additions satisfy the game rules. The basic components to handle these tasks are detailed in the following text.
 
@@ -43,6 +43,20 @@ The `GameBoard` class contains a two-dimensional array of GamePiece objects. The
 ### Determining Valid Moves
 
 The `UpdateListOfValidMoves` method creates a list of all the grid cell locations where the current player may legally place his new game piece. New pieces may only be placed on the game board if they meet the three requirements of the game rules: the cell is empty, the cell is adjacent to an opponent’s piece, and the new piece (along with an existing piece) will surround at least one of the opponent’s pieces.
+
+### Scoring
+
+...
+
+### Eye Candy
+
+...
+
+## The Code
+
+Let's get started!
+
+...
 
 ## Summary
 

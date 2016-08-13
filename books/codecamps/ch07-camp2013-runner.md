@@ -8,7 +8,8 @@ status: stub
 
 ## Overview
 
-![The 2013 Campers](images/camp2013students.jpg)
+![The 2013 Campers](images/camp2013students.jpg)<br/>
+_**The 2013 Campers**_
 
 Landry Academy's Computer Camp 2013 had five students, none of whom had used a compiler before this class.
 
@@ -22,7 +23,8 @@ The game supports two players, each of which has to run an identical gauntlet of
 
 The original design included power-ups and more elaborate obstacles. In the end, we realized that the full game would to be too much work for a week-long project. We cut features, but the end result was still a very nice game.
 
-![The 2013 Camp's Game](images/camp2013game.png)
+![The 2013 Camp's Game](images/camp2013game.png)<br/>
+_**The 2013 Camp's Game**_
 
 The 2013 Camp game can be downloaded from the following URL: 
 
@@ -34,13 +36,17 @@ The project from the 2013 camp was inspired by games like *Temple Run*, *Subway 
 
 At the time, I was unaware of another endless runner called *Canabalt*. It's a fast-paced, single-action 2D game where you jump from rooftop to rooftop, evading who knows what. Believe it or not, I actually came up with the concept for this chapter's game before I saw *Canabalt*. The design is so similar that it now feels like a clone, but it's not -- I pinkie promise.
 
-![Temple Run, Subway Surfers, and Canabalt](images/figure-endless-runner.png)
+![Temple Run, Subway Surfers, and Canabalt](images/figure-example-endless-runner.png)<br/>
+_**Endless Runner Examples**_
 
 The hero of our game, as with *Canabalt*, is running for their life from an unknown threat. Our hero, however, has twice as many legs! It's a cat that's on the run. You can plug in your own storyline. Maybe the little critter is fleeing an overzealous animal control officer. Maybe the cat is patient zero, freshly escaped from a viral lab. I don't know why it's running, I just know that this has the makings of a fun game.
 
-> **Note:** I created all the art for this example. Consider these assets to be in the public domain. Feel free to use (or ignore) them as you like.
+> I created all the art for this example. Consider these assets to be in the public domain. Feel free to use (or ignore) them as you like.
 
 Our hero will run (What choice do they have?), jumping from rooftop to rooftop. Some rooftops may contain obstacles that need to be evaded by jumping over them, or sliding under them. As the gameplay progresses, the cat will gain speed. If it smacks into an obstacle, its speed is reduced and momentum is lost. In time, though, the cat can reach full speed again, given enough error-free time on the run.
+
+![Endless Runner](images/figure-whiteboard-endless-runner.png)<br/>
+_**Our Game Concept**_
 
 Unfortunately, the walls of buildings aren't as forgiving. If the player fails to clear the space between two buildings, they clumsily splat into the side of the upcoming building, slowly sliding down the wall in a formless clump of goo.
 
@@ -72,7 +78,7 @@ The player will receive points for every meter (an arbitrary measure of a single
 
 Along the way, we will try to add some visual interest to the screen. This includes items that don't affect the gameplay, but add to the immersion of the game. For example, there may be birds on some rooftops who get spooked and fly away as the hero approaches. We can also add some city silhouettes in the background that move via parallax scrolling to give an illusion of depth to our flat world. We might go so far as to add lighting effects, but that may be a bit much for a single chapter.
 
-> **Note:** One bit of eye candy that *Canabalt* has which would be nice to add is collapsing buildings and low-flying aircraft that shake the screen when they are in view. I'm not sure if we will add that as part of this chapter, or present it as an exercise at the end. No cheating -- don't skip ahead to find out!
+> One bit of eye candy that *Canabalt* has which would be nice to add is collapsing buildings and low-flying aircraft that shake the screen when they are in view. I'm not sure if we will add that as part of this chapter, or present it as an exercise at the end. No cheating -- don't skip ahead to find out!
 > (It's not quite as simple as it may seem. In effect, a collapsing building involves deforming the game world while the player is interacting with it. Obstacles have to shift position along with the falling rooftop and collision testing has to take the current state of collapse into account.)
 
 ## The Code
