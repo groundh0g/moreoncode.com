@@ -2,16 +2,15 @@
 layout: book 
 title: "Chapter 2"
 tagline: "Getting Started"
-lastReviewedOn: "2016-08-13 00:00:00 -0500"
-status: placeholder
+lastReviewedOn: "2016-08-14 00:00:00 -0500"
+status: draft
 ---
 
 ```
 TODO:
 
-1. "I'll fight my instincts and document the steps that I took"
-2. "including the version of the MonoGame framework that was used to build it"
-3. "I fully intended to document the steps for creating an empty project for each platform."
+- "including the version of the MonoGame framework that was used to build it"?
+- "I fully intended to document the steps for creating an empty project for each platform."
 ```
 
 ## Overview
@@ -59,7 +58,7 @@ For the Mac OS X and Linux platforms, I recommend that you run the latest versio
 
 ## A Note on Project Templates
 
-I love project templates -- when they work, that is. But templates have a tendency to become outdated and broken. For XNA, the project templates were a part of the release. When each new version came out, there was a new "click here, here, and here" to create an empty project for the new version of the APIs. With MonoGame, the templates aren't a part of the release. They're maintained separately. That's why I've decided to provide you with handcrafted "empty" projects for each platform. Each contains all the components required to write your game. MonoGame may move on (and likely *will* have moved on) to a new version by the time you get around to writing your next *Cut the Rope* killer, but it won't matter. Everything that you need will be included in the project -- including the version of the MonoGame framework that was used to build it.
+I love project templates -- when they work, that is. But templates have a tendency to become outdated and broken. For XNA, the project templates were a part of the release. When each new version came out, there was a new "click here, here, and here" to create an empty project for the new version of the APIs. With MonoGame, the templates aren't a part of the release. They're maintained separately. That's why I've decided to provide you with handcrafted "empty" projects for each platform. Each contains all the components required to write your game. MonoGame may move on (and likely *will* have moved on) to a new version by the time you get around to writing your next *Cut the Rope* killer, but it won't matter. Everything that you need will be included in the project &mdash; including the version of the MonoGame framework that was used to build it.
 
 After detailing the installation process for the tools, I'll describe the process of creating empty MonoGame projects for each platform (hooray for `Color.CornflowerBlue`) so that you know what's going on under the covers if you'd like. You can feel free to skip those details for now. They'll be here waiting for you if you need them later. In fact, I suggest that you do ignore the "Empty Project: {*Target Platform*}" sections for now. Come back after you have a few MonoGame projects under your belt. It should make more sense then.
 
@@ -71,19 +70,51 @@ After detailing the installation process for the tools, I'll describe the proces
 
 ## MonoGame for Mac OS X
 
+While I've made my living as a Windows developer, my primary development machine these days is a MacBook Pro. I only bought that laptop so that I could write iOS apps, but I fell in love with the platform. If you intend to write games for OS X, iPhone, iPad, and iPod Touch, you'll eventually find your way to this section.
+
 ### Install the Tools
 
-If you do any OS X or iOS development, you'll need to install XCode - the primary development environment for those platforms. As I mentioned earlier, XCode won't install unless your computer is running the latest version of OS X. So, your first step may be to upgrade your OS. Luckily, it appears that Apple has decided to release their new OS upgrades for free.
+The core of the build system for OS X and iOS is XCode. So, we'll need to install it before we do anything else. Open the App Store on your Mac. Search for "XCode", then install it. This will take a while (the current version of XCode is nearly 4GB). Feel free to take that potty break now.
 
-To install XCode, just open the App Store and search for "xcode". It should be the first app in the list. This would be a good time to freshen up your coffee. The download and installation of XCode can take a while.
+Once the monster has been installed, launch it so that we can get past the "first run" initialization tasks. Once it's open, close it. You can play around in there if you like, but I suggest leaving a trail of breadcrumbs so that you don't get lost.
 
-Once XCode has been installed, you will need to run it once so that the components can be initialized. As soon as XCode finishes launching for the first time, you can close it. We'll spend as little time in XCode as possible. Most of our tasks can be handled using MonoDevelop.
+Next, we will install Mono (the .NET runtime for non-Microsoft platforms). Head over to the Mono download page at `http://www.mono-project.com/download/`. Download the installer for Mac OS X. Once downloaded, launch the installer and accept the defaults.
 
-Speaking of which, now's the time to download Xamarin Studio and the Mono Development Kit (MDK). Both links can be found on the "Download" page of the MonoDevelop website using the following URL.
+Now we can install the IDE that we'll be using &mdash; Xamarin Studio. Head over to the Xamarin website at `https://www.xamarin.com/download`, fill out the form, and download Xamarin Studio Community. Once downloaded, open the disk image and double click the installer. Accept the defaults. This is another rather large install, so be prepared to wait a bit.
 
-```
-   https://www.xamarin.com/studio
-```
+> If the installer fails for some reason, you'll be presented with the steps to manually install the components. You really shouldn't have to manually install anything. Just wait a little while and try again. There may have been an issue with one of the 3rd-party servers that the installer contacts for downloads.
+> 
+> I had the misfortune of having to run the installer several times. Thankfully, it's really smart about resuming where it left off, so each launch of the setup brought me closer and closer to my goal.
+
+As with XCode, we'll want to launch Xamarin Studio so that we can get past the "first run" initialization tasks. Once it's open, close it. At this point, you have all the tools you need to write cross-platform apps using C#. But, we still haven't installed the tools that we'll use to write our games. So, let's do that now.
+
+Head over to the `http://monogame.net/` website, then click on the **Downloads** link at the top of the page. At the time of this writing, the latest version is **MonoGame 3.5**. Clicking that link provides more links. Click the **MonoGame 3.5 for MacOS** link to download the `MonoGame.pkg` installer. When it's done downloading, launch it. Accept the defaults.
+
+> OK. It's official. I'm cursed. This installer silently failed to add the templates to Xamarin Studio duing the setup. No biggie, though. I just went to the Add-in Manager to see if the MonoGame add-ins had been installed (**Xamarin Studio Community &raquo; Add-Ins...** from the main menu). It turns out that the MonoGame add-in needed to be updated. So, I clicked the **Updates** tab, selected the MonoGame add-in, and then clicked the **Update** button. Problem solved.
+
+Fingers crossed. We may actually be done. It's now time to verify that things are working as expected.
+
+### Verify the Installation
+
+Open Finder, then click on the Applications tab to the left. Locate "Xamarin Studio". If you don't want to search for the application every time, drag the icon to your desktop or taskbar so it's more readily available. When you're done with the light housekeeping, click the icon to launch the IDE.
+
+Click **File &raquo; New &raquo; Project...** in the menu. Select "MonoGame Mac Application (Xamarin.Mac)" from the "MonoGame / App" project types. Click **Next**. Check the 2 version control boxes (use git, create a `.gitignore` file), and then click **Create**. I named my project and solution "HelloCornflowerBlue", and I kept the default "Projects" folder to keep my games organized.
+
+![Creating our first project](images/figure02-mac-new-solution.png)<br/>
+_**Creating our first project**_
+
+The IDE will churn a bit as it creates the project. When the dust settles down, click the play button at the top of the interface. If everything is working, you should see a window with a bright blue background.
+
+Congratulations. You've created your first game on Mac OS X.
+
+
+
+
+---
+
+
+
+
 
 Once the downloads have completed, you'll want to install the MDK first, and then MonoDevelop.
 
@@ -101,13 +132,34 @@ Click the Play icon at the top, left of the IDE or select *Run / Start Debugging
 
 ## MonoGame for Windows
 
+For Windows, we'll use Visual Studio to create our games. This is by far the easiest of the three development environments to configure.
+
 ### Install the Tools
 
-Blah. Blah. Blah.
+Since the location of the download has changed a lot over the years, I tend to search for "Microsoft Visual Studio download" in my favorite search engine, skip the ads at the top of the results, and click the first valid link.
+
+Today, that link takes you to `VisualStudio.com`. Make your way to the **Downloads** page, and then click the link to download the Visual Studio Community installer.
+
+Run the installer. Accept the defaults. Wait. (Now's a good time to get that cup of coffee you've been hankering for.) Once Visual Studio has been installed, launch it. We'll want to get all those "first run" initialization tasks out of the way.
+
+After you've installed and run Visual Studio, exit it without doing anything. Of course, you can play around in there if you like, but we're ready to install the bits for game development now.
+
+Head over to the `http://monogame.net/` website, then click on the **Downloads** link at the top of the page. At the time of this writing, the latest version is **MonoGame 3.5**. Clicking that link provides more links. Click the **MonoGame 3.5 for VisualStudio** link to download the `MonoGameSetup.exe`. When it's done downloading, launch the installer. Accept the defaults.
+
+Fingers crossed. We may actually be done. It's now time to verify that things are working as expected.
 
 ### Verify the Installation
 
-Blah. Blah. Blah.
+Click the Start button, find "Visual Studio". If you don't want to search for the application every time, right click the icon and select "Pin to Start" or "Pin to taskbar" so it's more readily available. When you're done with the light housekeeping, click the icon to launch the IDE.
+
+Click **File &raquo; New &raquo; Project...** in the menu. Select "MonoGame Windows Project" from the "MonoGame" project types (under **Installed / Templates / Visual C# / MonoGame**). Check the "Add to Source Control" box, and then click **OK**. I named my project and solution "HelloCornflowerBlue", and I kept the default "Projects" folder to keep my games organized.
+
+![Creating our first project](images/figure02-windows-new-solution.png)<br/>
+_**Creating our first project**_
+
+The IDE will churn a bit as it creates the project. When the dust settles down, click the **Start** button (with the green play icon) at the top of the interface. If everything is working, you should see a window with a bright blue background.
+
+Congratulations. You've created your first game on Windows.
 
 {pagebreak}
 
@@ -116,6 +168,13 @@ Blah. Blah. Blah.
 Another platform. Another suite of development tools. We need to visit the MonoGame website to download the installer for Linux. I suggest that you follow the instructions listed there, it's more likely to be current. If you'd rather have the step-by-step, though, read on.
 
 > I'm using Ubuntu 16.04 as I write this text. It looks like OpenSUSE makes things easier with (multiple) one-click installs, but I haven't tested anything other than Ubuntu.
+> 
+> The basic flow is to:
+> 
+> 1. Install Mono
+> 2. Install MonoDevelop
+> 3. Install MonoGame Dependencies
+> 4. Install MonoGame
 
 ### Install the Tools
 
