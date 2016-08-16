@@ -2,9 +2,15 @@
 layout: book
 title: "Chapter 1"
 tagline: "a Brief History"
-lastReviewedOn: "2016-08-07 00:00:00 -0500"
-status: placeholder
+lastReviewedOn: "2016-08-16 00:00:00 -0500"
+status: draft
 ---
+
+```
+TODO:
+
+- "// TODO: Add more text here."
+```
 
 ## Overview
 
@@ -22,17 +28,17 @@ In 2005, Microsoft released a line of products for hobbyists, students, and novi
 
 These free tools allow the average home user to explore and experiment with software development without having to invest a lot of (or in most cases, any) money. You can develop utilities, desktop applications, websites, relational databases, and more using tools that have traditionally retailed for hundreds of dollars.
 
-In the summer of 2006, Microsoft released another Express tool, targeting aspiring hobbyist and student game developers. That new tool was called XNA Game Studio Express. XNA provided a suite of tools and APIs that combined the power of DirectX with the ease-of-use of the .NET Framework, all accessed via managed code, using the C# programming language. Popular among hobbyists, enthusiasts, and independent game development studios, XNA has been actively developed by Microsoft through four major versions.
+In the summer of 2006, Microsoft released another Express tool, targeting aspiring hobbyist and student game developers. That new tool was called XNA Game Studio Express. XNA provided a suite of tools and APIs that combined the power of DirectX with the ease-of-use of the .NET Framework, all accessed via managed code, using the C# programming language. Popular among hobbyists, enthusiasts, and independent game development studios, XNA was actively developed by Microsoft through four major versions.
 
 ## Why Not Just Use XNA?
 
 The main reason to favor MonoGame over XNA is that XNA only runs on Microsoft platforms. MonoGame supports those same platforms, plus a slew of others.
 
-Another reason to move from XNA is revealed in an internal Microsoft email, leaked in early 2013, which makes it clear that XNA Game Studio’s current version, Game Studio 4.0 Refresh, released in late 2011, will be the last.
+But, even if you wanted to stick with XNA, you'd be a little crazy to do so. Microsoft mothballed the XNA project in 2014. XNA Game Studio 4.0 Refresh (released in late 2011) is the last version of XNA that will ever see the light of day. This was revealed in an internal Microsoft email, leaked in early 2013.
 
 >"Presently the XNA Game Studio is not in active development ... further value and engagement cannot be offered to the MVP community. As a result, effective April 1, 2014 XNA ... will be fully retired from the MVP Award Program."
 
-Gamasutra.com and Polygon.com, both referencing an article from ComputerAndVideoGames.com entitled, "Microsoft 'to axe XNA'," offered a more official announcement of XNA’s demise that contained the following information.
+Gamasutra.com and Polygon.com, both referencing an article from ComputerAndVideoGames.com entitled, "Microsoft 'to axe XNA'," soon offered a more official announcement of XNA’s demise that contained the following information.
 
 >A spokesperson for Microsoft at the PR firm Waggener Edstrom has insisted that... [Microsoft’s] move away from XNA will not affect games built with the development framework.
 >
@@ -54,7 +60,7 @@ For game developers, however, these abstractions resulted in unacceptably slow i
 
 Microsoft’s first attempt to address the performance needs of game developers was WinG, the predecessor of the DirectX APIs that we know today. DirectX provides a set of APIs, separate from the standard Windows APIs, to access hardware devices. These APIs, and their underlying device drivers, are highly optimized for performance.
 
-While DirectX provides game developers with a means to write high-performance games that run within the Windows environment, it’s not the easiest API in the world to master. A veteran game developer can do amazing things with DirectX, but it can be a little intimidating to folks who are new to game programming. XNA Game Studio and the XNA Framework mask that complexity, allowing game developers to focus on their game’s content and game play.
+While DirectX provides game developers with a means to write high-performance games that run within the Windows environment, it’s not the easiest API in the world to master. A veteran game developer can do amazing things with DirectX, but it can be a little intimidating to folks who are new to game programming. XNA masked that complexity, allowing game developers to focus on their game’s content and game play.
 
 ## What Is Managed Code?
 
@@ -62,17 +68,22 @@ On most development platforms, source code is compiled directly to native binari
 
 To run managed code on an actual CPU, there needs to be some intermediary between the managed executable and the physical processor. This intermediary, known as the runtime, is a program that was compiled to the target processor’s native instructions. The runtime then acts as a virtual CPU, emulating the non-existent, virtual CPU on the physical CPU.
 
-This concept is illustrated in Figure 1-1.
+![Comparison of Native and Managed Executable Files](images/figure01-native-vs-managed-code.png)<br/>
+_**Comparison of Native and Managed Executable Files**_
 
-![Figure 1-1 Comparison of Native and Managed Executable Files](images/figure01-01_Managed_Executables.png)
+### Just-in-Time Compilation
 
 Emulating virtual CPU instructions sounds inefficient, doesn’t it? Actually for most applications, you would likely see only nominally lower performance over the same basic native code. But most managed code runtimes (Microsoft’s included) support a feature known as just-in-time compilation (JIT). The JIT compiler takes the intermediate language that was generated by the managed compiler and generates native code that’s optimized for the targeted physical CPU just before the code is actually executed on the physical CPU. While there is still some overhead imposed by having the runtime layer between your application and the physical CPU, JIT compilation closes the overall performance gap between your managed code and it’s native cousins.
 
 That sounds interesting, but why include the additional complexity? What does targeting managed code offer an application developer that they wouldn’t normally have when writing native code?
 
+### Garbage Collection
+
 A major benefit comes in the area of memory management. In traditional languages that compile to native executable files, memory leaks are a common problem. It’s easy for developers to forget to release system resources that they allocate, especially when complex code paths or exception handling are involved.
 
 In managed code, like native code, memory is allocated as it’s needed. Unlike native code, the managed runtime keeps track of these allocations and any references to them. When the resource is no longer referenced by any of the live objects in your application, it’s automatically released by the runtime. There are still a few special cases where leaks can occur (especially when dealing with unmanaged resources from your managed code), but memory management basically comes for free in a managed environment. This feature of managed runtimes is known as garbage collection (GC).
+
+### Write Once, Run Everywhere
 
 Another benefit of managed code is platform agnosticism. Since your code targets a virtual CPU, it has no direct ties to the physical CPU on which it runs. That means that your managed code should be able to run on any platform that provides a runtime for it. For instance, (in theory) an application written in managed code could run on PCs, handheld devices, mainframes, or even game consoles.
 
@@ -84,11 +95,9 @@ Accessing the native host components through an abstraction layer is generally s
 
 In the case of components like the graphics system, however, the cost of abstraction is much greater. Updating millions of pixels every second requires a lot of CPU power, even when using native code. Thanks to advances in graphics hardware, a lot of that graphics processing can be offloaded to the graphics card itself by way of specialized programs that run on a secondary CPU that’s embedded on the graphics card known as the graphics processing unit (GPU). By running these specialized routines on the GPU, your application is only responsible for coordinating the efforts of the GPU and for shuffling required data to and from graphic memory.
 
-The MonoGame Framework includes a set of managed libraries that provides access to these advanced hardware features using a technology known as OpenGL. Whereas DirectX is a technology that is tied to Microsoft platforms such as Windows, Windows Phone, Zune, and the Xbox 360 game console, OpenGL provides the same abstractions to graphics hardware, in a cross-platform API (which happens to include support for the various flavors of Windows). As with DirectX, OpenGL provides APIs and underlying device drivers that are highly optimized for performance.
+The MonoGame Framework includes a set of managed libraries that provides access to these advanced hardware features using OpenGL or DirectX. DirectX is a technology that is tied to Microsoft platforms such as Windows, Windows Phone, Zune, and Xbox game console, OpenGL provides the same abstractions to graphics hardware, in a cross-platform API (which happens to include support for the various flavors of Windows). As with DirectX, OpenGL provides APIs and underlying device drivers that are highly optimized for performance.
 
 In addition to the graphics hardware, the MonoGame Framework supports input devices and audio via managed wrappers to the underlying native APIs.
-
-*MENTION CONTENT PIPELINE HERE?*
 
 The .NET Framework is fast becoming the leading platform for developing general-purpose Windows applications that run on the desktop, the web, and mobile devices. The MonoGame Framework relies on .NET Framework components like the Common Language Runtime and the core class libraries, but the MonoGame Framework has been specifically designed and optimized (based on XNA 4.x APIs) for developing games.
 
@@ -104,9 +113,13 @@ Xamarin is a company that sponsors Mono development, and is heavily invested in 
 
 You can develop mobile applications using Xamarin’s own, full-featured IDE, Xamarin Studio, or you can leverage your experience in Microsoft’s Visual Studio to create, build, debug, and deploy your applications using the industry standard IDE for .NET development. I make my living writing Windows applications in Visual Studio. When I’m off the clock, though, I’m a Mac guy. On my MacBook Pro, I’m a big fan of Xamarin Studio for OS X, Android, and iOS development.
 
+> Update: Xamarin was officially acquired by Microsoft in 2016. The same tools described in this text are still available, but they have a new home.
+
 ## What Role Does Managed Code Play in Games Today?
 
 As a standard for Windows application development, C# is often used as the language of choice for writing the tools that support game development. And C# has been used to write some really great Windows games. But for performance-critical applications, game developers typically use languages that target native code, like C and C++. Before the introduction of the XNA Framework, C# wasn’t really the best option for developing high-performance games like first-person shooters or 3D racing games.
+
+### Scripting and AI
 
 While C# is a relative newcomer to the area of game development, managed code has been used to script game objects and AI for a while now. Many times, developers will embed script parsers for game logic, and use native code only for those areas of code where performance is critical.
 
@@ -114,19 +127,26 @@ Native game code is the domain of the expert programmer. Using scriptable object
 
 Of course, there’s a time investment in getting the designers started and in supporting them in their efforts; but typically, developers find that the designers are able to use the scripting engines in ways that they never envisioned, leading to incredibly creative and innovative level designs. And since the designers don’t need to rely on the developers to make changes to the code whenever they want to tweak their designs, the overall turnaround time is reduced, and the designers can try many more variations on their themes than would typically be possible in an often-too-tight product development cycle.
 
+### Easier Code, Easier Maintenance
+
 The MonoGame Framework makes it easier for individuals and small teams to reap the benefits of reduced development times and lower levels of complexity typically seen when using a scripting engine, while also gaining the performance benefits of native (JIT’ed) code that targets the OpenGL APIs.
 
 Now you don’t need to be a veteran game developer to write great, commercially viable games. Of course, those veterans will be able to make the MonoGame Framework do things that a novice can only dream of, but in the realm of traditional native code, most entry-level developers would have a heck of a time just trying to get their game project off the ground.
 
 ## What Platforms Does MonoGame Support?
 
-![Figure 1-2 Development Platforms](images/figure01-02_Development_Platforms.png)
+// TODO: Add more text here.
+
+![Development Platforms](images/figure01-development-platforms.png)
+_**Development Platforms**_
+
+// TODO: Add more text here.
 
 {pagebreak}
 
 ## Summary
 
-MonoGame and Xamarin Studio make game development easier and more approachable for novice, hobbyist, and student developers by providing out-of-the-box support for many of the most common game programming tasks. By using MonoGame and managed code, your ideas will move from doodles on a napkin to playable games on your PC or mobile devices faster than ever before. Your code will be more robust and resistant to crashes. And you’ll be able to do all of this without emptying your wallet.
+MonoGame and Xamarin technologies make game development easier and more approachable for novice, hobbyist, and student developers by providing out-of-the-box support for many of the most common game programming tasks. By using MonoGame and managed code, your ideas will move from doodles on a napkin to playable games on your PC or mobile devices faster than ever before. Your code will be more robust and resistant to crashes. And you’ll be able to do all of this without emptying your wallet.
 
 In this chapter, you learned what MonoGame is and how it can help you to write games for a variety of platforms. You also learned what managed code is and how it can make life easier for game developers. In the next chapter, we will get these tools installed and prepare your development environment so that you can start bringing your game ideas to life.
 
