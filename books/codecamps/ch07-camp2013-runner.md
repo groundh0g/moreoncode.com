@@ -36,7 +36,7 @@ The project from the 2013 camp was inspired by games like *Temple Run*, *Subway 
 
 At the time, I was unaware of another endless runner called *Canabalt*. It's a fast-paced, single-action 2D game where you jump from rooftop to rooftop, evading who knows what. Believe it or not, I actually came up with the concept for this chapter's game before I saw *Canabalt*. The design is so similar that it now feels like a clone, but it's not -- I pinkie promise.
 
-![Temple Run, Subway Surfers, and Canabalt](images/figure-example-endless-runner.png)<br/>
+![Temple Run, Subway Surfers, and Canabalt](images/figure07-example-endless-runner.png)<br/>
 _**Endless Runner Examples**_
 
 The hero of our game, as with *Canabalt*, is running for their life from an unknown threat. Our hero, however, has twice as many legs! It's a cat that's on the run. You can plug in your own storyline. Maybe the little critter is fleeing an overzealous animal control officer. Maybe the cat is patient zero, freshly escaped from a viral lab. I don't know why it's running, I just know that this has the makings of a fun game.
@@ -45,7 +45,7 @@ The hero of our game, as with *Canabalt*, is running for their life from an unkn
 
 Our hero will run (What choice do they have?), jumping from rooftop to rooftop. Some rooftops may contain obstacles that need to be evaded by jumping over them, or sliding under them. As the gameplay progresses, the cat will gain speed. If it smacks into an obstacle, its speed is reduced and momentum is lost. In time, though, the cat can reach full speed again, given enough error-free time on the run.
 
-![Endless Runner](images/figure-whiteboard-endless-runner.png)<br/>
+![Endless Runner](images/figure07-whiteboard-endless-runner.png)<br/>
 _**Our Game Concept**_
 
 Unfortunately, the walls of buildings aren't as forgiving. If the player fails to clear the space between two buildings, they clumsily splat into the side of the upcoming building, slowly sliding down the wall in a formless clump of goo.

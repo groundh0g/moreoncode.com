@@ -38,7 +38,7 @@ I said "one to four players", didn't I? I guess you could play this one solo, bu
 
 Oh, I almost forgot another important addition to this game. The players can move left and right, as you might expect, but also towards and away from the screen. Didn't see that one coming, did ya?
 
-![Our oblivious heroes.](images/figure-whiteboard-survival.png)<br/>
+![Our oblivious heroes.](images/figure06-whiteboard-survival.png)<br/>
 _**Our Game Concept**_
 
 You're probably thinking that we will just use the Y component of each player's location to dictate their distance from the screen. And you're quite right. But players can also jump in this game, so we'll need to introduce a Z component to the players' locations.

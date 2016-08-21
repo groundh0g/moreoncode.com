@@ -1,7 +1,7 @@
 ---
-layout: book
-title: "Chapter 21"
-tagline: "Extras - Optimizations"
+layout: book 
+title: "Chapter 17"
+tagline: "Extras - Platform Issues"
 lastReviewedOn: "2016-08-01 00:00:00 -0500"
 status: stub
 ---

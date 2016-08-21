@@ -1,7 +1,7 @@
 ---
 layout: book
-title: "Chapter 14"
-tagline: "Author's Choice - Artificial Intelligence"
+title: "Chapter 12"
+tagline: "Author's Choice - Board Game AI"
 lastReviewedOn: "2016-07-01 00:00:00 -0500"
 status: stub
 ---
@@ -30,7 +30,8 @@ In our version of the game, the action takes place on a 8-by-8 grid. Each player
 
 Players take turns placing pieces on the board in an attempt to capture their opponent’s pieces and maximize the number of grid cells that are occupied by their own pieces. When there is no legal move for a player, he forfeits his turn and play passes to his opponent. If neither player can make a legal move (as is the case when the grid is full), the game is over. The player with the most pieces on the board wins.
 
-![Our game concept. It's the CPU's turn. Valid moves are highlighted.](images/figure-whiteboard-board-game-ai.png)
+![Our game concept. It's the CPU's turn. Valid moves are highlighted.](images/figure12-whiteboard-board-game-ai.png)<br/>
+_**Our Game Concept**_
 
 ## The Design
 
@@ -69,4 +70,3 @@ Blah. Blah. Blah. Blah. Blah.
 ## Exercises
 
 Blah. Blah. Blah. Blah. Blah.
-

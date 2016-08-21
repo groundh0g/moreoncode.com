@@ -1,6 +1,6 @@
 ---
 layout: book
-title: "Chapter 16"
+title: "Chapter 13"
 tagline: "Libraries - GamePadEx"
 lastReviewedOn: "2016-08-01 00:00:00 -0500"
 status: draft

@@ -2,9 +2,15 @@
 layout: book
 title: "Chapter 3"
 tagline: "Crash Course"
-lastReviewedOn: "2016-08-07 00:00:00 -0500"
+lastReviewedOn: "2016-08-18 00:00:00 -0500"
 status: placeholder
 ---
+
+```
+TODO:
+
+- "we will cover concepts such as variables, loops, objects, methods, and properties"
+```
 
 ## Overview
 
@@ -18,12 +24,19 @@ We covered installing tools in the previous chapter, and you'll be selecting you
 
 During that process, we will cover concepts such as variables, loops, objects, methods, and properties, along with many other techy buzzwords.
 
+> In this chapter we will:
+> 
+> - Learn how programs work
+> - Build our first game
+> - Learn about pixel-perfect collision detection
+
 ## How a Program Works
 
 All programs work basically the same way. They take input, process it, and generate output. Programs are written for specific tasks, though. So the way that input is collected, data is processed, and output is rendered varies greatly.
 
 One of the simplest programs is the console app. You type a command, optionally pass in parameters, and (eventually) get output. For example, you might want to see a list of files in the current directory.
 
+```
     josephs-mbp:~ groundh0g$ ls -lFa
     drwxr-xr-x+ 38 groundh0g  staff   1292 Sep 26 05:20 ./
     drwxr-xr-x   6 root       admin    204 Oct 28  2013 ../
@@ -38,22 +51,27 @@ One of the simplest programs is the console app. You type a command, optionally 
     drwxr-xr-x  24 groundh0g  staff    816 Sep 16 19:06 Projects/
     drwxr-xr-x+  5 groundh0g  staff    170 Jul 23 15:06 Public/
     josephs-mbp:~ groundh0g$ 
+```
 
 A console application takes it's input from the command line or from a file, processes the command and associated options, and generates output which is printed to the console. Requested actions are processed immediately.
 
 A desktop application spends most of its time idle, waiting for you to click a button or menu item, type some text, or drag your mouse across a canvas.
 
-![A text editor, patiently waiting for a slow typer to take notes.](images/figure-text-editor.png)
+![A text editor, patiently waiting for a slow typer to take notes.](images/figure03-text-editor.png)<br/>
+_**A text editor, patiently waiting for a slow typer to take notes**_
 
 Desktop apps are event-driven. They wait for a user-generated event (e.g. clicking or typing) or system-generated event (e.g. a shutdown notification), and then respond to that event.
 
 A service like a web server, waits for a command to arrive at a specific port (generally port 80), processes that command, and generates output (typically HTML or some static resource like an image). For example, the web browser (a desktop application) might send the following request to a web server (a service).
 
+```
     GET http://fpack.moreoncode.com/ HTTP/1.1
+```
 
 The server responds with HTML and images, which the browser uses to render the requested page. (*Technically, each static resource, like an image, is retrieved with separate `GET` requests.*)
 
-![Our requested webpage, beautifully rendered in the web browser. #shamelessplug](images/figure-fpack-homepage.png)
+![Our requested webpage, beautifully rendered in the web browser. #shamelessplug](images/figure03-fpack-homepage.png)<br/>
+_**Our requested webpage, beautifully rendered in the web browser**_
 
 I could list countless examples, and each would follow the same basic model of receiving input, processing the input, and generating output. But, you're reading this book because you're interested in game programming. So, let's take a look at how **a game** handles input, processing, and output.
 
@@ -94,18 +112,19 @@ To recap what we've learned so far ...
 
 Games are slightly different beasts. The user invokes them, and then they run continuously until they're asked to terminate. Games have a heartbeat. It's called the game loop. At regular intervals, two methods of a game are invoked - `Update` and `Draw`. The interval varies based on the game, but it's typically 1/60 of a second. 1/30 of a second is usually considered minimal for games, but your `Draw` calls can be made as infrequently as 1/12 of a second to provide smooth animations.
 
->**NOTE:** For reference, most TV shows refresh at around 29.97 frames per second (assuming NTSC), most theatrical and animated films refresh at around 24 frames per second, and standard quality web animations refresh at around 12 frames per second. Of course, there's a long list of specific frame rates for specific applications, but those are a common rule of thumb.
+> For reference, most TV shows refresh at around 29.97 frames per second (assuming NTSC), most theatrical and animated films refresh at around 24 frames per second, and standard quality web animations refresh at around 12 frames per second. Of course, there's a long list of specific frame rates for specific applications, but those are a common rule of thumb.
 
 If you take nothing else away from this section, remember `Update`, `Draw`, `Update`, `Draw`, `Update`, `Draw`, ... It's a concept that I drill into my camp students, and it's what makes a game or simulation different from other programs. Another major difference between games and other applications is that the "take input" step is continuous. The game is constantly polling input devices, asking them if there's been any change since the last query.
 
 The "process input" step is handled in the `Update` method. Your virtual world is constantly updated based on a variety of factors, including player input. And the "generate output" step is handled by the `Draw` method, which renders the game visuals based on the current state of in-game objects that have been refreshed in the `Update` method.
 
->**NOTE:** If you ever wondered why your laptop or smartphone battery drains faster when you're playing video games, now you know. The game world is refreshed and redrawn 60 times per second. That means that your code is churning through (nearly) all your game world objects in 1/60 of a second, throwing the results to the display, and as soon as that frame has been rendered the entire process starts again.
+> If you ever wondered why your laptop or smartphone battery drains faster when you're playing video games, now you know. The game world is refreshed and redrawn 60 times per second. That means that your code is churning through (nearly) all your game world objects in 1/60 of a second, throwing the results to the display, and as soon as that frame has been rendered the entire process starts again.
 
 ## Anatomy of a Game
 
 Before we get started on our game for this chapter, lets cover the basic parts of the MonoGame game class.
 
+```
     using System;
     using System.Collections.Generic;
     using Microsoft.Xna.Framework;
@@ -162,6 +181,7 @@ Before we get started on our game for this chapter, lets cover the basic parts o
          }
       }
     }
+```
 
 This is a fully functioning game. It renders a blue screen, at 60+ frames per second, and constantly asks the GamePad if the Back button is being pressed. When the Back button is pressed, the game exits. It's no blockbuster, but it has all the plumbing that we need to start building our own games.
 
@@ -180,34 +200,39 @@ There are six methods:
 * **`Update()`** - This is where your game word is updated.
 * **`Draw()`** - This is where you throw a view of your game world to the screen.
 
->**NOTE:** All methods, except for the constructor, have the keyword `override` as a part of their method declarations. That means that there is a method already implemented in the parent class (`Microsoft.XNA.Framework.Game`), so this code replaces the parent's implementation. If you want to use the parent's implementation in addition to your own, you'd use the `base.{MethodName}()` syntax to call the existing code from within your own. 
-
-If there is only one thing you will take away from this chapter, it's "Update, Draw, Update Draw, Update, Draw, Update, Draw, ..." That's the game loop. It's the heartbeat of every game you'll ever design, build, or play.
+> All methods, except for the constructor, have the keyword `override` as a part of their method declarations. That means that there is a method already implemented in the parent class (`Microsoft.XNA.Framework.Game`), so this code replaces the parent's implementation. If you want to use the parent's implementation in addition to your own, you'd use the `base.{MethodName}()` syntax to call the existing code from within your own. 
 
 Take a few minutes to read the code above. It's the simplest game there is for MonoGame - a blue screen. Over the course of the following chapters, we'll build some pretty neat stuff based on this simple foundation.
 
 ## Our Game
 
-OK. That's enough ivory tower crap. Let's make a game. We'll start simple, building a space shooter. The player will navigate an asteroid field while enemies are attacking him for no reason.
+That's enough ivory tower crap. Let's make a game. We'll start simple, building a space shooter. The player will navigate an asteroid field while enemies are attacking him for no reason.
 
->**NOTE:** OK. Maybe there's a reason. For example, it could be two warring clans whose disputes age back several centuries. But who really cares about the backstory? I don't know about you, but I just want to blow stuff up with lasers!
+OK. Maybe there's a reason. For example, it could be two warring clans whose disputes age back several centuries. But who really cares about the backstory? I don't know about you, but I just want to blow stuff up with lasers!
 
 The player pilots a spaceship, steering left and right, moving ever forward. They're not alone, though. Enemy forces occupy this region of space. And if that weren't bad enough, there are asteroids to dodge as well.
 
 The goal is to destroy enemy ships and asteroids in an effort to survive as long as possible. There's no princess to rescue. There's no bounty on the heads of your foes. Heck, you even have to pay for the maintenance and ammunition for your own ship - by collecting power ups. Life is tough. It's best you learn that now.
 
-![Our hero battling enemies and dodging asteroids.](images/figure-whiteboard-crash-course.png)
+![Our hero battling enemies and dodging asteroids.](images/figure03-whiteboard-crash-course.png)<br/>
+_**Our hero battling enemies and dodging asteroids**_
 
 So. Where do we start? From the same place as we always start - a blank, cornflower blue canvas onto which we can create, manipulate, and even destroy entire worlds!
 
 ### Centering ...
 
-![Unused image - for now.](images/figure-centering-sprites.png)
+![Unused image - for now.](images/figure03-centering-sprites.png)<br/>
+_**Unused image - for now**_
+
+### Pixel-Perfect Collisions ...
+
+![Unused image - for now.](images/figure03-collisions.png)<br/>
+_**Unused image - for now**_
 
 ### Screenshot ...
 
-![Unused image - for now.](images/figure03-05_DodgingRocks.png)
-
+![Unused image - for now.](images/figure03-dodging-rocks.png)<br/>
+_**Unused image - for now**_
 
 ## Summary
 

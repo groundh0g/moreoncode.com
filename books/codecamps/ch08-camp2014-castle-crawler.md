@@ -38,7 +38,7 @@ The 2014 Camp game can be downloaded from the following URL:
 
 Now that we have more time, we'll build the game that the students wanted to build in the first place. The fact that we were able to trim some features and easily build a different game type should show you how similar a castle crawler and a survival game can be. In fact, a survival game is actually one component of a castle crawler.
 
-![The parts of a castle crawler.](images/figure-whiteboard-castle-crawler.png)<br/>
+![The parts of a castle crawler.](images/figure08-whiteboard-castle-crawler.png)<br/>
 _**Our Game Concept**_
 
 The gameplay is fairly formulaic. Players move through the castle, killing baddies and collecting rewards. Every now and then, they're stopped in their tracks by a horde of enemies that attack from both sides. Once the invaders are defeated, the players continue their journey through the castle.

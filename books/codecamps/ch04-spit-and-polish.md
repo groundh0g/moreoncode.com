@@ -59,14 +59,20 @@ If you aren't sold on sprite sheets yet, there's one more benefit to consider. T
 
 > Technically, there are two files. We also need to store a list of rectangles within the sprite sheet image that correspond to our individual sprites.
 
------ Go into FPack here!
+``` 
+--- Go into FPack here!
+```
+![FannyPack: Sprite Sheets](images/figure04-fpack-sprite-sheets.png)<br/>
+_**FannyPack: Sprite Sheets**_
 
 ### Sprite Fonts
 
 When playing a game, everything you see on the screen is drawn by the game itself. That includes the obvious things like the player, enemies, and environment, but it also includes the letters and numbers you see. Each glyph in the score, HUD, or menu item is a sprite, placed on the screen with its peers to form words and numbers.
 
+```
 ----- Mention content pipeline, support for TTF at build time
 ----- Go into FPack here!
+```
 
 1. Open Source Fonts, free for commercial use
 1. Upload your own font, be careful about licensing
@@ -104,7 +110,7 @@ Two.
 
 ## Summary
 
-Blah. Blah. Blah. Blah. Blah.
+In this chapter, we learned how to add multiple screen types to our game. We learned what sprite sheets are, how they benefit our game, and how to utilize them. We also learned about various polishing touches that we can add to our games to give them a more finished feel.
 
 ## Review Questions
 

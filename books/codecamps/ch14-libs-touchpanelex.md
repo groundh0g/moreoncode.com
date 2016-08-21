@@ -1,6 +1,6 @@
 ---
 layout: book
-title: "Chapter 17"
+title: "Chapter 14"
 tagline: "Libraries - TouchPanelEx"
 lastReviewedOn: "2016-08-01 00:00:00 -0500"
 status: placeholder

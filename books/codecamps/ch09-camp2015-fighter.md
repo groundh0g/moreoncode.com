@@ -2,7 +2,7 @@
 layout: book 
 title: "Chapter 9"
 tagline: "Camp 2015 - Fighter"
-lastReviewedOn: "2016-07-01 00:00:00 -0500"
+lastReviewedOn: "2016-08-21 00:00:00 -0500"
 status: stub
 ---
 
@@ -32,21 +32,20 @@ The 2015 Camp game can be downloaded from the following URL:
 
 ## Our Game
 
-Blah. Blah. Blah. Blah. Blah.
+This is yet another chapter where you won't have to use my "programmer art" assets. We'll use the same Viking animations that the class used. Those assets were discovered on [OpenGameArt.org](http://opengameart.org/). The game will support two to four players. They will start off in the corners of the screen and after a brief countdown, they'll converge towards various points of the arena do damage to one another by mashing buttons at a furious pace.
+
+![The gladiators.](images/figure09-whiteboard-fighter.png)<br/>
+_**Our Game Concept**_
+
+To keep it all from becoming too confusing for the player, each avatar will have a colored shadow below it so that you can easily tell their position in the game world. If you forget which viking you are in all the confusion of melee, you can just look for the red (or blue, or green, ...) shadow.
 
 ## The Design
 
-As with any project, we need to do a little planning before we start filling our disk with ones and zeros. Luckily, the mechanics of the endless runner genre are very well established.
+Blah. Blah. Blah.
 
 ### Controls
 
-The controls are simple. We'll support touchscreens, controllers, and keyboards. Let's start with the touchscreen.
-
-* **Running:** Don't worry about running, the hero handles that automatically -- by running as fast as they can, increasing their velocity until they reach their top speed.
-* **Jumping:** Tap to jump. A quick tap for a short jump, a long press for the highest jump the hero can manage, or anything in between.
-* **Sliding:** Swipe down to slide under an obstacle.
-
-As for the devices with a gamepad, we can map jumping to one button (along with the short and long press behaviours) and sliding to another button. And since it won't hurt anything to give the player options, we can also map jump to thumbstick and DPad up, and slide to thumbstick and DPad down. In fact, via our keyboard-to-gamepad mapping, the player can use the up and down keyboard keys similarly.
+...
 
 ### Obstacles
 

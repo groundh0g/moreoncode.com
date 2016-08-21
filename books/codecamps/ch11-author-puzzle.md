@@ -1,6 +1,6 @@
 ---
 layout: book
-title: "Chapter 13"
+title: "Chapter 11"
 tagline: "Author's Choice - Puzzle"
 lastReviewedOn: "2016-07-01 00:00:00 -0500"
 status: stub
@@ -25,21 +25,16 @@ For the last several months, I've had a new favorite - *Puzzle and Dragons*. It'
 
 In this chapter we will develop a simplified clone of this game called *Puzzle and Zombies*. We'll capture the game play mechanics, but won't add in the RPG element.
 
-![Our game concept. Puzzle and Zombies!](images/figure-puzzle-title.png)
+![Our game title. Puzzle and Zombies!](images/figure11-title-screen.png)<br/>
+_**Our Game's Title Screen**_
 
 ## The Design
 
-As with any project, we need to do a little planning before we start filling our disk with ones and zeros. Luckily, the mechanics of the endless runner genre are very well established.
+Blah. Blah. Blah. 
 
 ### Controls
 
-The controls are simple. We'll support touchscreens, controllers, and keyboards. Let's start with the touchscreen.
-
-* **Running:** Don't worry about running, the hero handles that automatically -- by running as fast as they can, increasing their velocity until they reach their top speed.
-* **Jumping:** Tap to jump. A quick tap for a short jump, a long press for the highest jump the hero can manage, or anything in between.
-* **Sliding:** Swipe down to slide under an obstacle.
-
-As for the devices with a gamepad, we can map jumping to one button (along with the short and long press behaviours) and sliding to another button. And since it won't hurt anything to give the player options, we can also map jump to thumbstick and DPad up, and slide to thumbstick and DPad down. In fact, via our keyboard-to-gamepad mapping, the player can use the up and down keyboard keys similarly.
+...
 
 ### Obstacles
 
