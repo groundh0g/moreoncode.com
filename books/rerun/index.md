@@ -1,16 +1,16 @@
 ---
+layout: page
+title: "Rerun"
+tagline: "Revolution 2.0"
 ---
 
-{% comment %}
-{% assign books = "" %}
-{% for file in site.pages %}
-    {% if file.path contains "books/" and file.path contains "/summary.md" %}
-        {% assign book = file.path | replace: "/summary.md", "/" %}
-        {% assign books = books | append: book | append: "," %}
-    {% endif %}
-{% endfor %}
+### Current Status
 
-{{ books | split: "," | size }}
-{% endcomment %}
+If you're the kind of person that likes statistics, here's the current status of the project. This list is automatically updated whenever I make an edit to the book's content.
 
-Needs content.
+{% assign path=page.path %}
+{% include jaytch/books/list-chapters.liquid path=path %}
+
+### The License
+
+All content &copy; Joseph Barrett Hall. Read all you want, share the link, but resist the urge to copy / paste, print, or save.

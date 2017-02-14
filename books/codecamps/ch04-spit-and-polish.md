@@ -18,6 +18,7 @@ After you complete this chapter, you'll be able to jump to any of the chapters t
 > 
 > - Add multiple screen types to our game
 > - Learn how to build and use sprite sheets
+> - Learn how to draw text in our game
 > - Learn how to incorporate particles
 > - Add some polish and fluff 
 
@@ -87,6 +88,10 @@ One.
 ### Two
 
 Two.
+
+![Our default game screens](images/figure04-empty-game-screens.png)<br/>
+_**Our default game screens**_
+
 
 ## Implementing Our Game Enhancements
 

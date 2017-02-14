@@ -20,8 +20,13 @@ Blah. Blah. Blah. Blah. Blah.
 
 ## Review Questions
 
-Blah. Blah. Blah. Blah. Blah.
+1. Blah.
+1. Blah.
+1. Blah.
 
 ## Exercises
 
-Blah. Blah. Blah. Blah. Blah.
+**Exercise 1.** Blah. Blah. Blah. Blah. Blah.
+
+**Exercise 2.** Blah. Blah. Blah. Blah. Blah.
+

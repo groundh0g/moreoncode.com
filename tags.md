@@ -10,7 +10,8 @@ This is a list of the tags that are used in the posts. They're listed alphabetic
 {% for tag in sorted %}
 {% assign tagName = tag | first | uri_escape | downcase %}
 * [{{ tagName | capitalize }}]({{ site.baseurl }}tags#{{ tagName }}-ref) (x{{ tag | last | size }})
-{% for post in site.tags[tagName] | sort: "title" %}
+{% assign posts = site.tags[tagName] | sort: "title" %}
+{% for post in posts %}
   * [{{ post.title }}]({{ site.baseurl }}{{ post.url }})
 {% endfor %}
 {% endfor %}
